@@ -1,0 +1,46 @@
+/*
+ * ===================================================================
+ * THE HISTORY & BIRTH OF GIT (A Tech Drama)
+ * ===================================================================
+ *
+ * 1. THE DARK AGES (1991 - 2002): Patches and Archives
+ * -------------------------------------------------------------------
+ * In the early days of building the Linux operating system, there was
+ * no good version control. Developers literally passed code around
+ * by emailing "tarballs" (compressed archive files like .zip) and
+ * "patches" (small text files showing what lines of code changed)
+ * back and forth to the creator of Linux, Linus Torvalds. It was
+ * incredibly slow and painful to manage.
+ *
+ * 2. THE BITKEEPER ERA (2002 - 2005)
+ * -------------------------------------------------------------------
+ * The Linux team finally started using a proprietary Distributed Version
+ * Control System called BitKeeper. The company that owned BitKeeper
+ * allowed the open-source Linux developers to use it for free. For
+ * three years, development was smooth and fast.
+ *
+ * 3. THE CONFLICT (2005)
+ * -------------------------------------------------------------------
+ * In 2005, a Linux developer tried to reverse-engineer BitKeeper to
+ * figure out how it worked. The CEO of BitKeeper was furious and
+ * immediately revoked the free license for the entire Linux community.
+ * Suddenly, the biggest open-source project in the world had no way
+ * to manage its code.
+ *
+ * 4. THE BIRTH OF GIT (April 2005)
+ * -------------------------------------------------------------------
+ * Linus Torvalds refused to ever rely on a closed-source, paid tool
+ * again. Instead, he disappeared for a few weeks and wrote his own
+ * Distributed Version Control System from scratch. He called it "Git".
+ *
+ * LINUS'S DESIGN GOALS FOR GIT:
+ * - 100% Free and Open Source (Nobody could ever take it away).
+ * - Blisteringly Fast (Capable of handling the massive Linux codebase).
+ * - Fully Distributed (Every developer has a full backup).
+ * - Incredible Branching (Allowing thousands of developers to work
+ *   in parallel without stepping on each other's toes).
+ *
+ * THE RESULT:
+ * Today, Git is the undisputed king of version control, used by
+ * virtually every software company on the planet.
+ */

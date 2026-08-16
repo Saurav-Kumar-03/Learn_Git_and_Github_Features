@@ -1,0 +1,89 @@
+/*
+ * ===================================================================
+ * THE EVOLUTION & TYPES OF VERSION CONTROL SYSTEMS (VCS)
+ * ===================================================================
+ *
+ * 1. LOCAL VCS
+ * -------------------------------------------------------------------
+ * - How it works: All versions and project history are saved locally 
+ *   on a single developer's computer.
+ * - The Flaw (Single Point of Failure): If that specific computer crashes, 
+ *   gets stolen, or the hard drive dies, the entire project is permanently lost.
+ * - The Flaw (No Collaboration): Because the database lives on one laptop, 
+ *   it is impossible for a team to work together on the code simultaneously.
+ *
+ * 2. CENTRALIZED VCS (CVCS)
+ * -------------------------------------------------------------------
+ * - How it works: A single, shared server holds the main "Repository" 
+ *   (the database of all changes). Developers connect to this server to 
+ *   "Update" (download the latest files) and "Commit" (upload their changes).
+ * - Real-World Example: Subversion (SVN).
+ * - Diagram Breakdown (image_ae3b02.jpg): 
+ *   As seen in the image, the Server holds the 'Repository', while 
+ *   workstations #1, #2, and #3 only hold a 'Working copy' (the current files). 
+ *   They must constantly talk to the server to do anything.
+ * - The Flaw: If the central server goes offline, nobody can commit code 
+ *   or collaborate. If the central server's hard drive fails and there is 
+ *   no backup, the entire project history is lost forever.
+ *
+ * 3. DISTRIBUTED VCS (DVCS)
+ * -------------------------------------------------------------------
+ * - How it works: There is still a central server, but instead of just 
+ *   downloading the latest files, every developer "clones" (copies) the 
+ *   ENTIRE repository—including its full history of every change ever made—
+ *   onto their local machine.
+ * - Real-World Example: Git.
+ * - The Solution: 
+ *   A. Offline Work: Because the entire database is on your laptop, you 
+ *      can commit code, view history, and create branches on an airplane 
+ *      without internet.
+ *   B. Ultimate Backup: If the central server is destroyed, the project 
+ *      is completely safe. ANY developer can simply upload their local 
+ *      repository to a new server, and the proje😭ct is 100% restored.
+ */
+
+ /*
+  * ===================================================================
+  * THE APOCALYPSE SCENARIO (DVCS BACKUP POWER)
+  * ===================================================================
+  *
+  * - The Ultimate Redundancy: Because DVCS requires every developer to
+  *   download the ENTIRE repository (the full history of every version),
+  *   every single developer's laptop acts as a full backup server.
+  * - Server Failure: If the main GitHub/GitLab server goes down completely,
+  *   no data is lost. The team simply creates a new central server, and
+  *   any developer can push their local copy to instantly restore the project.
+  * - Total Failure: The only way to truly lose a project in a DVCS is if
+  *   the central server AND every single developer's physical machine are
+  *   destroyed at the exact same time.
+  */
+  /*
+   * ===================================================================
+   * GIT vs. GITHUB (AND OTHER CLOUD HOSTS)
+   * ===================================================================
+   *
+   * A very common beginner mistake is confusing Git with GitHub. They
+   * are two completely different things that work together.
+   *
+   * 1. GIT (The Engine / The Software)
+   * - What it is: Git is the actual Version Control System software
+   *   installed on your local computer.
+   * - Function: It is the invisible engine that tracks your file changes,
+   *   manages branches, and creates commits.
+   * - Internet required? NO. Git works 100% offline.
+   *
+   * 2. GITHUB, GITLAB, & BITBUCKET (The Cloud Hosts)
+   * - What they are: These are third-party, internet-based companies
+   *   that provide hosting services for your Git repositories.
+   * - Function: They act as the "Central Server" so teams can share
+   *   code, review each other's work, and back up projects to the cloud.
+   * - Internet required? YES.
+   *
+   * THE BIG THREE CLOUD HOSTS:
+   * - GitHub: Owned by Microsoft. The absolute standard for open-source
+   *   projects and individual portfolios.
+   * - GitLab: Known for having incredibly powerful built-in automation
+   *   (CI/CD) pipelines.
+   * - Bitbucket: Owned by Atlassian. Heavily used in corporate environments
+   *   because it links perfectly with Jira (issue tracking software).
+   */

@@ -1,0 +1,90 @@
+Installation : In mac we generally have the git installed , for windows we need to download the
+               that from the git source and during download it has a convention that we can choose
+               main repo or master repo it was master branch only when it was launched , but it later
+               became optional with main
+/*
+ * ===================================================================
+ * THE ULTIMATE GIT CHEAT SHEET: SETUP & CORE COMMANDS
+ * ===================================================================
+ *
+ * 1. INSTALLATION
+ * -------------------------------------------------------------------
+ * - Windows: Download the installer from git-scm.com (this installs Git Bash,
+ *   a powerful terminal for Windows).
+ * - Mac: Open your terminal and type 'git --version'. If it is not installed,
+ *   your Mac will automatically prompt you to install it.
+ * - Linux: Use your package manager (e.g., 'sudo apt install git').
+ *
+ * 2. FIRST-TIME SETUP (Identity Configuration)
+ * -------------------------------------------------------------------
+ * Before you do anything, you must tell Git who you are. This information
+ * is permanently stamped onto every commit you make so the team knows
+ * exactly who wrote which lines of code.
+ *
+ * Set your username:
+ * git config --global user.name "Your Name"
+ *
+ * Set your email:
+ * git config --global user.email "your.email@example.com"
+ *
+ * Check your current settings:
+ * git config --list
+ *
+ * 3. STARTING A PROJECT
+ * -------------------------------------------------------------------
+ * git init {Git Initialization}
+ * - Turns a standard local folder into a Git repository. It creates a
+ *   empty hidden '.git' database inside the folder to track all history.
+ *
+ * git clone <url>
+ * - Downloads a complete, existing project from a remote server (like
+ *   GitHub) to your local machine.
+ *
+ * 4. THE DAILY WORKFLOW (Save Your Work)
+ * -------------------------------------------------------------------
+ * git status
+ * - Your best friend! It tells you exactly what files you have modified,
+ *   what is untracked, and what is ready to be saved. Always type this first.
+ *
+ * git add <file-name>
+ * - Moves a specific modified file into the "Staging Area" (getting it ready).
+ *
+ * git add .
+ * - A massive time-saver. Adds ALL modified files to the Staging Area at once.
+ *
+ * git commit -m "Your descriptive message here"
+ * - Takes a snapshot of the Staging Area and permanently saves it into
+ *   your local Git history. Always write a clear, descriptive message!
+ *
+ * git log
+ * - Displays the timeline history of all commits made in the project.
+ *
+ * 5. BRANCHING & MERGING (Parallel Universes)
+ * -------------------------------------------------------------------
+ * git branch
+ * - Lists all the branches that currently exist in your local repository.
+ *
+ * git branch <branch-name>
+ * - Creates a new branch (e.g., git branch feature-login).
+ *
+ * git checkout <branch-name>  OR  git switch <branch-name>
+ * - Moves you into the specified branch so you can start working in
+ *   that isolated environment.
+ *
+ * git merge <branch-name>
+ * - Combines the code from the specified branch into the branch you
+ *   are currently standing on.
+ *
+ * 6. WORKING WITH REMOTES (GitHub / GitLab / Bitbucket)
+ * -------------------------------------------------------------------
+ * git remote add origin <url>
+ * - Connects your local repository to a remote repository in the cloud.
+ *
+ * git push origin <branch-name>
+ * - Uploads your local commits up to the remote server so your team
+ *   can see your work.
+ *
+ * git pull origin <branch-name>
+ * - Downloads the latest commits from the remote server and automatically
+ *   merges them into your local files.
+ */
