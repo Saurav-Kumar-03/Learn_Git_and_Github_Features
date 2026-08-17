@@ -1,0 +1,109 @@
+/*
+ * ===================================================================
+ * MASTER GIT CHEAT SHEET: SCENARIOS, PROBLEMS & SOLUTIONS
+ * ===================================================================
+ *
+ * -------------------------------------------------------------------
+ * SECTION 1: VIEWING CHANGES (git diff)
+ * -------------------------------------------------------------------
+ * SCENARIO: You want to double-check the code you just wrote before
+ * saving it.
+ *
+ * THE PROBLEM: You type 'git diff' but the screen is completely blank,
+ * even though you know you changed files.
+ *
+ * THE CATCH: Git separates unstaged and staged files.
+ * - 'git diff' ONLY compares your workbench (Working Directory) to the
+ *   loading dock (Staging Area). If you already ran 'git add', they match!
+ *
+ * THE SOLUTION:
+ * - Unstaged files (Before 'git add'): Run 'git diff'
+ * - Staged files (After 'git add'): Run 'git diff --staged'
+ *   (Note: 'git diff --cached' does the exact same thing).
+ *
+ *
+ * -------------------------------------------------------------------
+ * SECTION 2: UNDOING MISTAKES (Rollbacks)
+ * -------------------------------------------------------------------
+ * SCENARIO: You committed a buggy file, or worse, you accidentally
+ * committed a file containing private client data/API keys.
+ *
+ * THE SOLUTION: The fix depends entirely on whether you have pushed to
+ * the cloud yet.
+ *
+ * If you HAVE NOT pushed yet (Local Only):
+ * - Keep work, undo commit: 'git reset --soft HEAD~1' (Files stay staged)
+ * - Unstage work, undo commit: 'git reset HEAD~1' (Files return to workbench)
+ * - Nuke from orbit: 'git reset --hard HEAD~1' (Deletes commit AND the code)
+ *
+ * If you ALREADY pushed (It is on GitHub/GitLab):
+ * - DO NOT use 'git reset' (It breaks your team's history).
+ * - Safe Undo: 'git revert <commit-hash>' (Creates a new commit that
+ *   does the exact opposite of the bad one).
+ * - CRITICAL WARNING for private data: Reverting does NOT hide the data
+ *   from hackers looking at old history. You MUST change the API key
+ *   or password immediately on the actual platform.
+ *
+ *
+ * -------------------------------------------------------------------
+ * SECTION 3: THE MANUAL DELETE TRAP
+ * -------------------------------------------------------------------
+ * SCENARIO: You want to get rid of a file, so you manually delete it
+ * using your computer's File Explorer or Trash Bin.
+ *
+ * THE PROBLEM: Git still remembers the file.
+ *
+ * THE CATCH: Deleting a file manually only removes it from your Working
+ * Directory. The Staging Area and Local Repository still have perfect
+ * backups of it. If you run 'git status', Git will show it in red as
+ * "deleted," asking what you want to do.
+ *
+ * THE SOLUTION:
+ * - To actually tell Git to delete it forever going forward:
+ *   1. 'git rm <file-name>'
+ *   2. 'git commit -m "Removed file"'
+ *
+ *
+ * -------------------------------------------------------------------
+ * SECTION 4: RECOVERING LOST FILES
+ * -------------------------------------------------------------------
+ * SCENARIO: You accidentally deleted a file and want it back.
+ *
+ * THE SOLUTION:
+ * As long as the file was Staged (git add) or Committed, Git can
+ * rescue you.
+ * - Command: 'git restore <file-name>'
+ *   (Older Git versions use: 'git checkout -- <file-name>')
+ * Git will reach into its vault and put the file exactly back where it was.
+ *
+ * THE "SILENT GIT" MYSTERY:
+ * If you delete a file and 'git status' says absolutely nothing, it means
+ * the file was "Untracked" (you never ran 'git add'). Git has no backup
+ * of it. You must recover it from your OS Recycle Bin.
+ *
+ *
+ * -------------------------------------------------------------------
+ * SECTION 5: IDE BEHAVIOR & "UNKNOWN FILE" ERRORS
+ * -------------------------------------------------------------------
+ * SCENARIO: You stage a brand new file ('git add .'). Then you click
+ * "Discard Changes" or "Rollback" in your IDE (VS Code, IntelliJ).
+ * You realize it was a mistake and try to run 'git restore <file>'.
+ *
+ * THE PROBLEM: The terminal throws this error:
+ * "error: pathspec '...' did not match any file(s) known to git"
+ *
+ * THE CATCH (How IDEs work):
+ * Your IDE runs terminal commands in the background. When you click
+ * "Discard" on a brand new, uncommitted file, the IDE knows Git can't
+ * restore it. It will throw a warning pop-up ("Are you sure?").
+ *
+ * If you click Yes, the IDE runs a hard delete command (like 'git clean -f')
+ * and bypasses your Recycle Bin entirely. Because the file was never
+ * officially committed, Git completely forgets it ever existed.
+ *
+ * THE GOLDEN RULE OF RECOVERY:
+ * Git can ONLY recover a file if it is currently in the Staging Area,
+ * or if it has been saved in at least one Commit. If a brand new file
+ * is hard-deleted before its first commit, it is gone forever.
+ * ALWAYS read IDE warning pop-ups!
+ */

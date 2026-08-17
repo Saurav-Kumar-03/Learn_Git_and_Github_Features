@@ -1,0 +1,66 @@
+/*
+ * ===================================================================
+ * CENTRAL SERVERS & GITHUB: COLLABORATING WITH A TEAM
+ * ===================================================================
+ *
+ * 1. THE PROBLEM (Why do we need this?)
+ * -------------------------------------------------------------------
+ * Up until now, Git has only existed locally on your own computer.
+ * But if you want a teammate to work on the exact same project, they
+ * cannot magically access your laptop's hard drive.
+ *
+ * 2. THE SOLUTION: The Central Server
+ * -------------------------------------------------------------------
+ * We need a third-party computer (a server) sitting on the internet
+ * that holds the "master copy" of the project. Both you and your
+ * teammate will push code up to this server and pull code down from it.
+ *
+ * The Big Platforms:
+ * - GitHub (Most popular, free for public/student use)
+ * - GitLab & Bitbucket (Often paid, used in corporate environments for
+ *   extra enterprise features).
+ *
+ * *Important Note:* Because they all use Git as the engine, the terminal
+ * commands (push, pull, clone) are exactly the same across all of them!
+ *
+ * 3. GITHUB FEATURES (Public Search)
+ * -------------------------------------------------------------------
+ * Because GitHub is free and open, it acts as a massive search engine
+ * for code. You can search for almost any feature, and if a developer
+ * made their repository "Public," you can look at their code, read it,
+ * and even bring it to your own computer.
+ *
+ * 4. HOW TO GET CODE FROM GITHUB (ZIP vs. Clone)
+ * -------------------------------------------------------------------
+ * When you find a public project on GitHub and click the green "Code"
+ * button, you have two ways to get it to your device:
+ *
+ * A) Download ZIP:
+ *    - Downloads just the raw text files.
+ *    - The Catch: It DOES NOT download the hidden '.git' folder. You
+ *      get no version history and cannot use Git commands on it.
+ *
+ * B) Git Clone (The Developer Way):
+ *    - Command: 'git clone <url>'
+ *    - Downloads the files AND the complete '.git' database. You get
+ *      the entire version history of the project.
+ *
+ * 5. CLONING PROTOCOLS: WHAT IS SSH?
+ * -------------------------------------------------------------------
+ * When you choose to clone a repository, GitHub gives you a URL.
+ * You will see tabs for "HTTPS" and "SSH".
+ *
+ * HTTPS:
+ * - The basic way. It requires your username and a password (or token)
+ *   to verify who you are if you try to push code back up.
+ *
+ * SSH (Secure Shell):
+ * - The industry standard. SSH is a secure way for your computer to talk
+ *   to GitHub's server WITHOUT ever typing a password.
+ * - How it works: You generate two files on your laptop called "Keys".
+ *   One is a Private Key (stays hidden on your laptop), and one is a
+ *   Public Key (you paste this into your GitHub settings).
+ * - The Result: When you run a Git command, GitHub automatically checks
+ *   if your laptop holds the matching Private Key. If it does, you are
+ *   instantly authenticated.
+ */
