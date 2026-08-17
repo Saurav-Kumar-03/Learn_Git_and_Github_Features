@@ -1,0 +1,2 @@
+Like this i just want to use the git push not that big git push -u origin main since it is
+connected now
