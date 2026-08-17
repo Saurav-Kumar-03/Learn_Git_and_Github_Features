@@ -35,3 +35,5 @@
  now when after the changes if we do the git status we can see the which is being changed[modified]
  which had been committed in the past then we need to the same process again to commit the changes we
  have done in that folder or the file
+ git add . -> this will add all the modified file to the staging area
+ git commit -m "My second commit" -> this will then commit the modified things
