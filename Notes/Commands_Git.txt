@@ -1,0 +1,40 @@
+/*
+ * ===================================================================
+ * VIEWING CHANGES: git diff vs. git diff --staged
+ * ===================================================================
+ *
+ * THE CONCEPT:
+ * Because Git has three distinct areas (Working Directory, Staging Area, 
+ * and Local Repository), you need different commands to see the differences 
+ * between them.
+ *
+ * 1. git diff (Unstaged Changes)
+ * -------------------------------------------------------------------
+ * - What it compares: The Working Directory vs. The Staging Area.
+ * - When to use it: You have edited a file and want to see exactly what 
+ *   lines you changed BEFORE you run 'git add'.
+ * - The Catch: If you have already run 'git add', this command will 
+ *   return nothing (because the Working Directory and Staging Area 
+ *   now match).
+ *
+ * 2. git diff --staged (Staged Changes)
+ * -------------------------------------------------------------------
+ * - What it compares: The Staging Area vs. The Last Commit (Repository).
+ * - When to use it: You have already run 'git add' and want to do one 
+ *   final review of your changes BEFORE you run 'git commit'.
+ * - Note: 'git diff --cached' is the exact same command. It is just 
+ *   an older synonym for '--staged'.
+ *
+ * SUMMARY WORKFLOW:
+ * 1. Type some code.
+ * 2. Run 'git diff' to double-check your typing.
+ * 3. Run 'git add .'.
+ * 4. Run 'git diff --staged' for a final pre-commit review.
+ * 5. Run 'git commit'.
+ */
+
+ q → Quit
+ Space → Move down one page
+ b → Move up one page
+ ↑ / ↓ → Move line by line
+ /text → Search for text
