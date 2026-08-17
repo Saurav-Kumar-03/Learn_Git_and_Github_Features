@@ -38,6 +38,51 @@
  *   checks if the computer sending the code holds the matching Private Key,
  *   and if they fit together perfectly, it lets the code through instantly
  *   without ever asking for a password.
+
+/*
+ * ===================================================================
+ * THE MISSING LINK: ADDING THE SSH KEY TO GITHUB'S WEBSITE
+ * ===================================================================
+ *
+ * THE SCENARIO:
+ * You just ran 'ssh-keygen' on your terminal and copied the massive
+ * block of text from your Public Key (id_ed25519.pub).
+ *
+ * THE PROBLEM:
+ * Your terminal has the key, but GitHub has no idea it exists yet.
+ * If you try to run 'git push' right now, GitHub will reject you. You
+ * must manually hand the Public puzzle piece to GitHub.
+ *
+ * THE UI SEQUENCE (Step-by-Step on GitHub.com):
+ * -------------------------------------------------------------------
+ * Step 1: Copy the Public Key
+ * Run 'cat ~/.ssh/id_ed25519.pub' in your terminal and copy the
+ * entire output (starting with 'ssh-ed25519' and ending with your
+ * computer name).
+ *
+ * Step 2: Navigate to GitHub Settings
+ * Log into GitHub.com. Click your profile picture in the top right
+ * corner and select "Settings" from the dropdown menu.
+ *
+ * Step 3: Access the Keys Menu
+ * On the left sidebar, scroll down to the "Access" section and
+ * click on "SSH and GPG keys".
+ *
+ * Step 4: Add the New Key
+ * Click the green "New SSH key" button.
+ *
+ * Step 5: Fill in the Details
+ * - Title: Give it a recognizable name (e.g., "MacBook Pro Terminal").
+ * - Key type: Leave it as "Authentication Key".
+ * - Key: Paste the exact text you copied from your terminal in Step 1.
+ * - Click "Add SSH key".
+ *
+ * THE RESULT:
+ * Now, GitHub holds the Public puzzle piece, and your laptop holds
+ * the Private puzzle piece. The authentication bridge is officially
+ * built, and you are cleared to run 'git remote add origin' and
+ * 'git push'.
+ */
  *
  * PHASE 3: DEFINING THE CONNECTION (git remote)
  * -------------------------------------------------------------------
