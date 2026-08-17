@@ -71,6 +71,51 @@
    * - Function: It is the invisible engine that tracks your file changes,
    *   manages branches, and creates commits.
    * - Internet required? NO. Git works 100% offline.
+   // This thing is achieved by :-
+   /*
+    * ===================================================================
+    * LOCAL VS. REMOTE: HOW GIT CONNECTS TO THE SERVER
+    * ===================================================================
+    *
+    * THE CORE CONCEPT:
+    * Git splits your workflow into two completely separate actions.
+    * "Saving" your work is an offline action. "Uploading" your work
+    * is an online action.
+    *
+    * PHASE 1: THE OFFLINE ACTIONS (Your Laptop)
+    * -------------------------------------------------------------------
+    * - git add : Prepares your files.
+    * - git commit : Saves the version to your LOCAL database.
+    *   (At this point, the Central Server has NO IDEA you did anything.
+    *   You can do this on an airplane with no Wi-Fi).
+    *
+    * THE BRIDGE: "REMOTES"
+    * -------------------------------------------------------------------
+    * To tell your offline Git where the central server is, you add a
+    * "Remote". A remote is just a saved URL pointing to your GitHub,
+    * GitLab, or Bitbucket server.
+    *
+    * - Standard Name: By industry convention, the main central server
+    *   is almost always named "origin".
+    * - Command: git remote add origin <https://github.com/...>
+    *
+    * PHASE 2: THE ONLINE ACTIONS (Syncing with the Server)
+    * -------------------------------------------------------------------
+    * When you finally have an internet connection and are ready to share
+    * your local commits with the team, you use the "Network Commands":
+    *
+    * 1. PUSH (Uploading)
+    *    Command: git push origin main
+    *    What it does: Git connects to the internet, packages all the local
+    *    commits you made while offline, and uploads them to the central
+    *    server ("origin"). Now the rest of the team can see your work.
+    *
+    * 2. PULL (Downloading)
+    *    Command: git pull origin main
+    *    What it does: Git connects to the internet, checks the central
+    *    server for any commits your teammates uploaded while you were
+    *    working offline, and downloads them to your laptop.
+    */
    *
    * 2. GITHUB, GITLAB, & BITBUCKET (The Cloud Hosts)
    * - What they are: These are third-party, internet-based companies

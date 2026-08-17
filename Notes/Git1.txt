@@ -1,4 +1,4 @@
-Installation : In mac we generally have the git installed , for windows we need to download the
+Installation : In Mac we generally have the git installed , for windows we need to download the
                that from the git source and during download it has a convention that we can choose
                main repo or master repo it was master branch only when it was launched , but it later
                became optional with main

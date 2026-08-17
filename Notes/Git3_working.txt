@@ -1,0 +1,37 @@
+/*
+ * ===================================================================
+ * GIT'S INTEGRITY FEATURE: CHECKSUMS (SHA-1 HASHING)
+ * ===================================================================
+ *
+ * THE MISCONCEPTION: "Git assigns a random number to commits."
+ * THE REALITY: Git calculates a cryptographic "Hash" based on your actual code.
+ *
+ * 1. WHAT IS A SHA-1 HASH?
+ * -------------------------------------------------------------------
+ * When you commit your code, Git runs the contents of your files through 
+ * a mathematical algorithm called SHA-1. This spits out a 40-character 
+ * hexadecimal string (the checksum).
+ * Example: 24b9da6552252987aa493b52f8696cd6d3b00373
+ *
+ * 2. HOW IT GUARANTEES INTEGRITY (The Domino Effect)
+ * -------------------------------------------------------------------
+ * - Deterministic: The exact same code will always produce the exact 
+ *   same hash. 
+ * - The Alert System: If a hacker tries to secretly alter a file, or if 
+ *   your hard drive gets corrupted and changes a single byte of data, 
+ *   the math equation will instantly produce a completely different hash.
+ * - Git's Reaction: Git compares the new hash to the old hash. Because 
+ *   they no longer match, Git instantly throws an error and alerts you 
+ *   that the file was tampered with or corrupted.
+ *
+ * 3. EVERYTHING IS HASHED
+ * -------------------------------------------------------------------
+ * Git doesn't just hash files; it hashes entire commits. A commit's hash 
+ * includes the author's name, the date, the commit message, and the hash 
+ * of the previous commit. You cannot change a single detail in Git history 
+ * without changing every single hash that comes after it!
+ */
+
+ now when after the changes if we do the git status we can see the which is being changed[modified]
+ which had been committed in the past then we need to the same process again to commit the changes we
+ have done in that folder or the file
