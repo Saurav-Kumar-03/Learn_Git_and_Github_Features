@@ -71,3 +71,44 @@
  * Command: git push origin v1.0 
  * (Or use 'git push origin --tags' to upload every local tag at once).
  */
+
+ 1. Creating New Branches
+
+     Legacy Method: You created and switched to your first branch using the older
+     (but still widely used) command: git checkout -b Feature1.
+
+     Modern Method: Later, you created your second branch using the newer, recommended command:
+     git switch -c Feature2.
+
+ 2. Committing to a Specific Branch
+
+     While standing on Feature1, you staged a new file (Notes/Branching.txt) and permanently
+     saved it to that specific branch using git commit -m "Learning Branch". This safely isolated
+     your new work from the main branch.
+
+ 3. Navigating Between Branches
+
+     Standard Switching: You practiced jumping back and forth between your parallel universes using
+     git switch main and git switch Feature1.
+
+     The Quick-Jump: You successfully used git switch - to instantly teleport back to your previously
+     checked-out branch (moving from Feature2 back to Feature1).
+
+ 4. Inspecting Your Branches
+
+     Local View: You ran git branch several times to see a list of your local branches, noting the *
+     next to the branch you were currently standing on.
+
+     Global View: You ran git branch --all to see your local branches alongside your remote tracking
+     branches (like remotes/origin/main).
+
+ 5. Cleaning Up (Deleting a Branch)
+
+     You decided you no longer needed your second experiment, so you safely deleted it from your
+     local machine using git branch -d Feature2.
+
+ 6. Publishing the Branch to GitHub
+
+     Finally, you uploaded your completed feature to the central server using git push origin Feature1.
+     Git successfully created a matching Feature1 branch on GitHub and even provided you with a
+     direct URL to open a "Pull Request" to officially merge your code!
