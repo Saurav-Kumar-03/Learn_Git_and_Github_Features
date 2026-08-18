@@ -1,0 +1,111 @@
+/*
+ * ===================================================================
+ * SECTION 9: HANDLING BUGGY CODE & THE BRANCHING WORKFLOW
+ * ===================================================================
+ *
+ * -------------------------------------------------------------------
+ * PART 1: THE EMERGENCY FIX (Bug Already Pushed to GitHub)
+ * -------------------------------------------------------------------
+ *
+ * 1. THE PROBLEM:
+ * You pushed a commit containing bugggy code directly to the remote 'main'
+ * branch. Users or teammates are now downloading broken code.
+ *
+ * 2. THE CATCH (Why you CANNOT use 'git reset' here):
+ * If you run 'git reset --hard' locally and try to push, GitHub will 
+ * REJECT your push because your local history is behind the remote 
+ * history. If you force it ('git push --force'), you erase history that 
+ * your teammates might have already pulled, corrupting their workspaces.
+ *
+ * 3. THE SAFE SOLUTION: 'git revert'
+ * Instead of erasing the past, you create a brand new commit that performs 
+ * the exact mathematical opposite of the broken commit.
+ *
+ * Step-by-Step Terminal Execution:
+ *
+ * Step A: Find the hash of the broken commit
+ * Command: git log --oneline
+ * Output example: 
+ *   a1b2c3d (HEAD -> main, origin/main) Added broken payment calculator
+ *   f4e5d6c Fixed navbar alignment
+ *
+ * Step B: Revert the bad commit
+ * Command: git revert a1b2c3d
+ * - What happens: Git creates a new commit automatically titled 
+ *   "Revert 'Added broken payment calculator'". It deletes the buggy lines 
+ *   and restores the previous lines.
+ *
+ * Step C: Push the fix to GitHub
+ * Command: git push origin main
+ * - The Result: GitHub receives the new revert commit, the bug is gone 
+ *   from production, and your team's history remains intact and unbroken.
+ *
+ *
+ * -------------------------------------------------------------------
+ * PART 2: THE PROACTIVE PREVENTION (The Branching Workflow)
+ * -------------------------------------------------------------------
+ *
+ * 1. THE CONCEPT:
+ * In professional engineering, nobody pushes experimental or unverified 
+ * code directly to 'main'. 
+ * Instead, you create a "Branch" — a parallel universe where you can write 
+ * code, break things, and test freely without affecting 'main'.
+ *
+ * 2. THE WORKFLOW SEQUENCE:
+ *
+ * Step A: Create and switch to a new branch
+ * Command: git switch -c feature-user-login
+ * (Older syntax: git checkout -b feature-user-login)
+ * - Breakdown:
+ *   - 'git switch': Change the branch you are standing on.
+ *   - '-c': Create a brand new branch with this name and switch to it 
+ *     instantly.
+ *
+ * Step B: Write your code, stage it, and commit it
+ * Commands:
+ *   git add .
+ *   git commit -m "Wrote login authentication logic"
+ * - What happens: This commit only exists inside 'feature-user-login'. 
+ *   The 'main' branch remains 100% clean and untouched.
+ *
+ * Step C: Push your branch to GitHub
+ * Command: git push -u origin feature-user-login
+ * - What happens: GitHub creates a separate branch in the cloud.
+ *
+ *
+ * -------------------------------------------------------------------
+ * SCENARIO 2A: THE EXPERIMENT FAILED (The Code is Buggy/Trash)
+ * -------------------------------------------------------------------
+ * Since the buggy code is isolated on its own branch, your 'main' branch 
+ * is completely safe. You can simply abandon or delete the bad branch.
+ *
+ * Step 1: Switch back to the safe 'main' branch
+ * Command: git switch main
+ *
+ * Step 2: Delete the buggy branch locally
+ * Command: git branch -D feature-user-login
+ * (-D stands for "Force Delete". It throws the branch in the trash).
+ *
+ * Step 3: Delete the buggy branch from GitHub
+ * Command: git push origin --delete feature-user-login
+ * - The Result: The buggy experiment is completely erased, and 'main' 
+ *   never experienced a single error.
+ *
+ *
+ * -------------------------------------------------------------------
+ * SCENARIO 2B: THE EXPERIMENT SUCCEEDED (Merge into Main)
+ * -------------------------------------------------------------------
+ * If the code in the branch works perfectly, you combine it into 'main'.
+ *
+ * Step 1: Switch to 'main'
+ * Command: git switch main
+ *
+ * Step 2: Download any recent updates from teammates
+ * Command: git pull origin main
+ *
+ * Step 3: Merge your branch into main
+ * Command: git merge feature-user-login
+ *
+ * Step 4: Push the updated main to GitHub
+ * Command: git push origin main
+ */
